@@ -1,0 +1,32 @@
+<div *ngIf="products.length > 0; else loading">
+  <h2>Products</h2>
+  <h3>DRINKS</h3>
+  <section *ngFor="let p of products">
+    <button *ngIf="p.kind === 'drink'" (click)="sendToOrder($event, p)" >
+      {{p.name}}
+      {{p.price}} 
+    </button>
+  </section>
+  <h3>BURGERS & SANDWICHES</h3>
+  <section *ngFor="let p of products">
+    <button *ngIf="p.kind === 'burger-sandwich'" (click)="sendToOrder($event, p)">
+      {{p.name}}
+      {{p.price}} 
+    </button>
+  </section>
+  <h3>ACCOMPANIMENT</h3>
+  <section *ngFor="let p of products">
+    <button *ngIf="p.kind === 'accompaniment'" (click)="sendToOrder($event, p)">
+      {{p.name}}
+      {{p.price}}
+    </button>
+  </section>
+</div>
+
+<ng-template #nothing>
+  <p>doesn't exists</p>
+</ng-template>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
