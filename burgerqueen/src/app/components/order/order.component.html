@@ -1,7 +1,16 @@
 <h2>ORDER</h2>
 <li>CLIENT: <input type="text" placeholder="name"> </li>
 <li>N° ORDER:</li>
-<li>N° TABLE: T </li>
-<table>
-  
-</table>
+<li>N° TABLE: T <select name="table" id="table">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select> </li>
+<app-products (meal)="recibeOrder($event)">
+</app-products>
+<section *ngFor="let p of orderT">
+  {{p.name}}
+  {{p.price}}
+</section>

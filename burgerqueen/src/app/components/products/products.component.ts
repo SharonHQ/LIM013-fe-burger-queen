@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 import { ProductService } from '../../services/product.service';
 
@@ -8,6 +8,8 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+
+  @Output() public meal = new EventEmitter<any>();
 
   products = [] as any;
 
@@ -19,9 +21,13 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  sendToOrder(event: any, product: any) {
-    this.productService.addOrder(product);
-    
+  addInOrder(product: any) {
+    this.meal.emit(product);
   }
+
+/*   addInOrder(event: any, product: any) {
+    //this.productService.addOrder(product);
+    
+  } */
 
 }
