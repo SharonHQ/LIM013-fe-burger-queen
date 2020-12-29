@@ -7,10 +7,26 @@ import { ProductService } from '../../services/product.service';
 })
 export class OrderComponent implements OnInit {
 
-  values = '';
+  // values = '';
   orderT = [] as any;
   total = 0;
   opcionSeleccionado = [] as any;
+  units = [{ id: 1, name: '1' },
+  { id: 2, name: '2' },
+  { id: 3, name: '3' },
+  { id: 4, name: '4' },
+  { id: 5, name: '5' },
+  { id: 6, name: '6' },
+  { id: 7, name: '7' },
+  { id: 8, name: '8' },
+  { id: 9, name: '9' },
+  { id: 10, name: '10' }];
+  tables = [{ id: 1, name: '1' },
+  { id: 2, name: '2' },
+  { id: 3, name: '3' },
+  { id: 4, name: '4' },
+  { id: 5, name: '5' }];
+
   constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
@@ -23,10 +39,10 @@ export class OrderComponent implements OnInit {
     product.subtotal = product.price;
     this.total += product.subtotal;
     console.log(product);
-    
+
   }
-  capturar(event: any, product: any, i: any){
-    let oldSubTotal = product.subtotal; 
+  capturar(event: any, product: any, i: any) {
+    let oldSubTotal = product.subtotal;
     product.unit = this.opcionSeleccionado[i];
     product.subtotal = product.price * product.unit;
     this.total += product.subtotal - oldSubTotal;
@@ -38,13 +54,14 @@ export class OrderComponent implements OnInit {
     return index;
   }
 
-  sendOrder(name: any, numberTable: any){
+  sendOrder(name: any, numberTable: any) {
     console.log(this.orderT);
-    this.productService.addOrder({ ...this.orderT, nameUser: name, numberTable: numberTable, state: 'false', total: this.total});
+    this.productService.addOrder({ ...this.orderT, nameUser: name, numberTable: numberTable, state: 'false', total: this.total });
   }
-  deleteMeal(event: any){
+  deleteMeal(product:any, positionProduct:any) {
     console.log(this.orderT)
-    this.orderT.pop(event);
+    this.orderT.splice(positionProduct, 1);
+    this.total -= product.subtotal;
     console.log(this.orderT);
   }
 }
