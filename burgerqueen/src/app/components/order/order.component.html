@@ -1,12 +1,8 @@
 <h2>ORDER</h2>
 <li>CLIENT: <input #nameUser (keyup)="nameUser.value"></li>
 <li>N° ORDER:</li>
-<li>N° TABLE: T <select #table>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
+<li>N° TABLE: T <select #table >
+  <option *ngFor="let table of tables" [value]="table.id">{{table.name}}</option>
   </select> </li>
 <app-products (meal)="recibeOrder($event)">
 </app-products>
@@ -19,20 +15,11 @@
 </strong>
 <section *ngFor="let p of orderT; let i = index; trackBy: trackByFn">
   {{p.name}}
-  <select [(ngModel)]="opcionSeleccionado[i]" (ngModelChange)="capturar($event, p, i)" >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
+  <select [(ngModel)]="opcionSeleccionado[i]" (ngModelChange)="capturar($event, p, i)">
+    <option *ngFor="let unit of units" [value]="unit.id">{{unit.name}}</option>
   </select>
   ${{p.price}}
-  <button (click)="deleteMeal(p)">Delete</button>
+  <button (click)="deleteMeal(p, i)">Delete</button>
 </section>
 <p>Total: {{total}} </p>
 <button (click)="sendOrder(nameUser.value, table.value)">SEND TO KITCHEN</button>
