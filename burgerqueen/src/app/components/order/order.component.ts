@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 @Component({
   selector: 'app-order',
@@ -7,10 +7,11 @@ import { ProductService } from '../../services/product.service';
 })
 export class OrderComponent implements OnInit {
 
-  // values = '';
   orderT = [] as any;
+  userName = '';
   total = 0;
-  opcionSeleccionado = [] as any;
+  unitsPerMeal = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+  tableNumber =  1;
   units = [{ id: 1, name: '1' },
   { id: 2, name: '2' },
   { id: 3, name: '3' },
@@ -26,7 +27,6 @@ export class OrderComponent implements OnInit {
   { id: 3, name: '3' },
   { id: 4, name: '4' },
   { id: 5, name: '5' }];
-
   constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
@@ -41,27 +41,35 @@ export class OrderComponent implements OnInit {
     console.log(product);
 
   }
-  capturar(event: any, product: any, i: any) {
+  addUnits(event: any, product: any, i: any) {
     let oldSubTotal = product.subtotal;
-    product.unit = this.opcionSeleccionado[i];
+    product.unit = this.unitsPerMeal[i];
     product.subtotal = product.price * product.unit;
     this.total += product.subtotal - oldSubTotal;
-    console.log(product);
-
   }
 
   trackByFn(index: any, item: any) {
     return index;
   }
 
-  sendOrder(name: any, numberTable: any) {
-    console.log(this.orderT);
-    this.productService.addOrder({ ...this.orderT, nameUser: name, numberTable: numberTable, state: 'false', total: this.total });
+  sendOrder() {
+    if (this.total !== 0) {
+    this.productService.addOrder({ ...this.orderT, nameUser: this.userName, numberTable: this.tableNumber, state: 'false', total: this.total });
+    this.startOver();  
+    } else {
+      alert('Ingrese una orden');
+    }
   }
   deleteMeal(product:any, positionProduct:any) {
     console.log(this.orderT)
     this.orderT.splice(positionProduct, 1);
     this.total -= product.subtotal;
     console.log(this.orderT);
+  }
+  startOver() {
+    this.total = 0;
+    this.orderT = [];
+    this.userName = '';
+    this.tableNumber = 1;
   }
 }
