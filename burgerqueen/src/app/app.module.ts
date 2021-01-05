@@ -6,17 +6,25 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ProductsComponent } from './components/products/products.component';
-import { OrderComponent } from './components/order/order.component';
+import { ProductsComponent } from './components/waiter/products/products.component';
+import { OrderComponent } from './components/waiter/order/order.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { WaiterComponent } from './components/waiter/waiter.component';
+import { ChefComponent } from './components/chef/chef.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AsideComponent } from './components/waiter/aside/aside.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    OrderComponent
+    OrderComponent,
+    WaiterComponent,
+    ChefComponent,
+    HeaderComponent,
+    AsideComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +32,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

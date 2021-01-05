@@ -1,0 +1,49 @@
+<div class="product" *ngIf="products.length > 0; else loading">
+  <h2 class="title">PRODUCTS</h2>
+  <div>
+    <h3 class="subtitle">DRINKS</h3>
+    <div class="kind">
+      <section *ngFor="let p of products">
+        <button class="card-product" *ngIf="p.kind === 'drink'" (click)="addInOrder(p)">
+          <img src="{{p.photo}}" alt="{{p.name}}">
+          <section class="detail-product">
+            <p>{{p.name}}</p>
+            <p>${{p.price}}</p>
+          </section>
+        </button>
+      </section>
+    </div>
+  </div>
+  <div>
+    <h3 class="subtitle">BURGERS & SANDWICHES</h3>
+    <div class="kind">
+      <section *ngFor="let p of products">
+        <button class="card-product" *ngIf="p.kind === 'burger-sandwich'" (click)="addInOrder(p)">
+          <img src="{{p.photo}}" alt="{{p.name}}">
+          <section class="detail-product">
+            <p>{{p.name}}</p>
+            <p>${{p.price}}</p>
+          </section>
+        </button>
+      </section>
+    </div>
+  </div>
+  <div>
+    <h3 class="subtitle">ACCOMPANIMENT</h3>
+    <div class="kind">
+      <section *ngFor="let p of products">
+        <button class="card-product" *ngIf="p.kind === 'accompaniment'" (click)="addInOrder(p)">
+          <img src="{{p.photo}}" alt="{{p.name}}">
+          <section class="detail-product">
+            <p>{{p.name}}</p>
+            <p>${{p.price}}</p>
+          </section>
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
