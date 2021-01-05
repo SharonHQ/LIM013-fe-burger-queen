@@ -1,0 +1,49 @@
+img {
+  width: 80px;
+  height: 80px;
+}
+
+.card-product {
+  width: 120px;
+  height: 150px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px #4D4D4D solid;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.product {
+  width: 470px;
+  height: 91vh;
+  overflow-y: auto;
+  border: 1px solid #4D4D4D;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.kind {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.82em;
+  color: #CACACA;
+  text-align: center;
+  margin: 13px 5px;
+  
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.18em;
+  color: #CACACA;
+  margin-left: 10px;
+}

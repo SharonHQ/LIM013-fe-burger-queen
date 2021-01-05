@@ -1,0 +1,34 @@
+<app-products (meal)="recibeOrder($event)">
+</app-products>
+<section>
+<div class="order-details">
+  <h2 class="title">ORDER</h2>
+  <section><label>Client: </label>
+  <input class="user-name" [(ngModel)]="userName"></section>
+  <p>N° Order:</p>
+  <p>N° Table: T
+    <select [(ngModel)]="tableNumber">
+      <option *ngFor="let table of tables" [value]="table.id">{{table.name}}</option>
+    </select>
+  </p>
+  <table>
+    <tr>
+      <th>Items</th>
+      <th>Units</th>
+      <th>Price</th>
+      <th><i class="fa fa-remove"></i></th>
+    </tr>
+    <tr *ngFor="let p of orderT; let i = index; trackBy: trackByFn">
+      <td>{{p.name}}</td>
+      <td><select [(ngModel)]="unitsPerMeal[i]" (ngModelChange)="addUnits($event, p, i)">
+        <option *ngFor="let unit of units" [value]="unit.id">{{unit.name}}</option>
+      </select></td>
+      <td>${{p.price}}</td>
+      <td><button class="delete" (click)="deleteMeal(p, i)"><i class="fa fa-trash"></i></button></td>
+    </tr>
+  </table>
+  <p>Total: {{total}} </p>
+  <button class="button-send" (click)="sendOrder()">SEND TO KITCHEN</button>
+</div>
+<button class="order-list">ORDER LIST</button>
+</section>

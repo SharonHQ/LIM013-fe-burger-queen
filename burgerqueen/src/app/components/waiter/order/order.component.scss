@@ -1,0 +1,91 @@
+:host{
+  display: flex;
+}
+
+.order-details {
+  overflow-y: auto;
+  height: 80vh;
+  max-width: 215px;
+  border: 1px solid #4D4D4D;
+  margin: 5px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  section, p{
+    margin-bottom: 10px;
+  }
+  .user-name {
+    width: 70%;
+    border-radius: 5px;
+  }
+
+}
+
+i{
+  color: white;
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+td, th {
+  border: 1px solid #30363D;
+  text-align: left;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #2F4147;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0.82em;
+  color: #CACACA;
+  text-align: center;
+  margin: 5px ;
+}
+
+.button-send {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  color: #CACACA;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  align-self: center;
+  justify-self: end;
+}
+.order-list {
+  height: 8vh;
+  margin: 5px;
+  width: 95%;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0.82em;
+  color: #CACACA;
+  text-align: center;
+  border-radius: 8px;
+}

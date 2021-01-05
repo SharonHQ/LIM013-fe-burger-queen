@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../../services/product.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
