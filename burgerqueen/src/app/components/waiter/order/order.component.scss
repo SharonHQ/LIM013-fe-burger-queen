@@ -1,12 +1,13 @@
 :host{
   display: flex;
+  max-width: 100%;
 }
 
 .order-details {
   overflow-y: auto;
-  height: 80vh;
-  max-width: 215px;
-  border: 1px solid #4D4D4D;
+  height: 88vh;
+  max-width: 100%;
+  border: 1px solid #222222;
   margin: 5px;
   border-radius: 8px;
   box-sizing: border-box;
@@ -75,17 +76,9 @@ tr:nth-child(even) {
   align-self: center;
   justify-self: end;
 }
-.order-list {
-  height: 8vh;
-  margin: 5px;
-  width: 95%;
-  background-color: #21262d;
-  border: 1px solid #30363d;
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 400;
-  letter-spacing: 0.82em;
-  color: #CACACA;
-  text-align: center;
-  border-radius: 8px;
+.unit{
+  width: 10px;
+}
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
 }

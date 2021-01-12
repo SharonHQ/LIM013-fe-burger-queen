@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public inputValue!: any[];
+
+  constructor(public searchService: SearchService) { }
 
   ngOnInit(): void {
+    this.searchService.searchProducts.subscribe((result:any) => {
+      this.inputValue = result;
+    });
   }
 
+  onKey(event: any) {
+    this.inputValue = event.target.value;
+    console.log(this.inputValue);
+    this.searchService.getInputValue(this.inputValue);
+  }
 }
