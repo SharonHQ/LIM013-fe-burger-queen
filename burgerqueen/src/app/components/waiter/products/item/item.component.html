@@ -1,0 +1,7 @@
+<button class="card-product" (click)="send(p)">
+  <img src="{{p.photo}}" alt="{{p.name}}">
+  <section class="detail-product">
+    <p>{{p.name}}</p>
+    <p>{{p.price | currency}}</p>
+  </section>
+</button>

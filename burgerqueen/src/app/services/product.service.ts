@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 import { Product } from '../models/product';
 import { Order } from '../models/order'
 
@@ -21,14 +20,14 @@ export class ProductService {
     this.productsCollection = this.db.collection('Products');
     this.orderCollection = this.db.collection('order');
     this.products = this.productsCollection.snapshotChanges().pipe(map(actions => {
-      return actions.map(a => {
+      return actions.map((a) => {
         const data = a.payload.doc.data() as Product;
-        data.id = a.payload.doc.id;
+        data.productId = a.payload.doc.id;
         return data;
       });
     }));
-
   }
+  
   getProducts() {
     return this.products;
   }

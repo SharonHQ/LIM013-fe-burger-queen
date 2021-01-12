@@ -1,7 +1,23 @@
 aside {
-  height: 91vh;
-  width: 50px;
-  border: 1px solid #4D4D4D;
+  height: 88vh;
+  max-width: 100%;
+  border: 1px solid #222222;
   margin: 5px;
   border-radius: 8px;
+  color: #cacaca;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 30px;
+  padding: 4px;
+  i{
+    padding: 10px;
+    border: 4.5px solid transparent;
+  }
+}
+aside {
+  i:hover{
+    border: 1.5px solid #4D4D4D;
+    border-radius: 5px;
+    border-left: 3px solid #22FF90;
+  }
 }

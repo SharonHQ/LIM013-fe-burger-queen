@@ -16,6 +16,8 @@ import { WaiterComponent } from './components/waiter/waiter.component';
 import { ChefComponent } from './components/chef/chef.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AsideComponent } from './components/waiter/aside/aside.component';
+import { ItemComponent } from './components/waiter/products/item/item.component';
+import { FoodComponent } from './components/waiter/order/food/food.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { AsideComponent } from './components/waiter/aside/aside.component';
     ChefComponent,
     HeaderComponent,
     AsideComponent,
+    ItemComponent,
+    FoodComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,49 +1,27 @@
-<div class="product" *ngIf="products.length > 0; else loading">
-  <h2 class="title">PRODUCTS</h2>
-  <div>
-    <h3 class="subtitle">DRINKS</h3>
-    <div class="kind">
-      <section *ngFor="let p of products">
-        <button class="card-product" *ngIf="p.kind === 'drink'" (click)="addInOrder(p)">
-          <img src="{{p.photo}}" alt="{{p.name}}">
-          <section class="detail-product">
-            <p>{{p.name}}</p>
-            <p>${{p.price}}</p>
-          </section>
-        </button>
-      </section>
-    </div>
-  </div>
-  <div>
-    <h3 class="subtitle">BURGERS & SANDWICHES</h3>
-    <div class="kind">
-      <section *ngFor="let p of products">
-        <button class="card-product" *ngIf="p.kind === 'burger-sandwich'" (click)="addInOrder(p)">
-          <img src="{{p.photo}}" alt="{{p.name}}">
-          <section class="detail-product">
-            <p>{{p.name}}</p>
-            <p>${{p.price}}</p>
-          </section>
-        </button>
-      </section>
-    </div>
-  </div>
-  <div>
-    <h3 class="subtitle">ACCOMPANIMENT</h3>
-    <div class="kind">
-      <section *ngFor="let p of products">
-        <button class="card-product" *ngIf="p.kind === 'accompaniment'" (click)="addInOrder(p)">
-          <img src="{{p.photo}}" alt="{{p.name}}">
-          <section class="detail-product">
-            <p>{{p.name}}</p>
-            <p>${{p.price}}</p>
-          </section>
-        </button>
-      </section>
-    </div>
-  </div>
-</div>
+<ng-container *ngIf="handleProducts.length !== 0 then handledProductsTemplate else totalProducts">
+</ng-container>
 
+<ng-template #handledProductsTemplate>
+  <section *ngIf="handleProducts.length > 0 && handleProducts.length < 12
+  && handleProducts !== -1 else notFound" >
+    <app-item *ngFor="let product of handleProducts" [p]="product"></app-item>
+  </section>
+</ng-template>
+
+<ng-template #totalProducts class="product" >
+  <h2 class="title">PRODUCTS</h2>
+  <div *ngFor="let sub of subcategory">
+    <h3 class="subtitle">{{sub.name}}</h3>
+    <div class="kind">
+      <section *ngFor="let pro of products">
+        <app-item *ngIf="pro.kind === sub.name" [p]="pro"></app-item>
+      </section>
+    </div>
+  </div>
+</ng-template>
 <ng-template #loading>
   <p>Loading...</p>
+</ng-template>
+<ng-template #notFound>
+  <p>No coincidences :(</p>
 </ng-template>

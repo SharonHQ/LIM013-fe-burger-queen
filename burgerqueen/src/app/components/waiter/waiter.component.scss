@@ -4,5 +4,8 @@
 
 :host{
   display: flex;
+  max-height: 100vh;
+  max-width: 100%;
+  justify-content: center;
 }
 

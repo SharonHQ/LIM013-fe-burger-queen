@@ -1,0 +1,22 @@
+<td>{{food.productName}}
+  <div *ngIf="food.add === true">
+    <select [(ngModel)]="food.flavor">
+      <option value="beef">Beef</option>
+      <option value="chicken">Chicken</option>
+      <option value="veggie">Veggie</option>
+    </select><br>
+    <label>
+      <div *ngFor="let extra of extras">
+        <input type="checkbox" [disabled]="extra.checked" [value]="extra.value" (click)="handlerExtra(food, extra)">
+        <span>{{extra.value}}</span><br>
+      </div>
+    </label>
+  </div>
+</td>
+<td>
+  <i class="fa fa-minus" (click)="lessUnit(food)"></i>
+  <span>{{food.units}}</span>
+  <i class="fa fa-plus" (click)="addUnit(food)"></i>
+</td>
+<td>{{food.subTotal | currency}}</td>
+<td><i class="fa fa-trash" (click)="remove(food.id)"></i></td>

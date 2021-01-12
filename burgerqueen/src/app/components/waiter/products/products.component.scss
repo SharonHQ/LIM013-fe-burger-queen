@@ -14,12 +14,16 @@ img {
 }
 
 .product {
-  width: 470px;
-  height: 91vh;
+  max-width: 99%;
+  height: 88vh;
   overflow-y: auto;
-  border: 1px solid #4D4D4D;
+  border: 1px solid #222222;
   margin: 5px;
   border-radius: 8px;
+}
+
+.product::-webkit-scrollbar {
+    -webkit-appearance: none;
 }
 
 .kind {
@@ -46,4 +50,9 @@ img {
   letter-spacing: 0.18em;
   color: #CACACA;
   margin-left: 10px;
+  
+  text-transform: uppercase;
+}
+:host{
+  max-width: 100%;
 }
