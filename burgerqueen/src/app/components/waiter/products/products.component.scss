@@ -14,7 +14,7 @@ img {
 }
 
 .product {
-  max-width: 99%;
+  max-width: 50%;
   height: 88vh;
   overflow-y: auto;
   border: 1px solid #222222;
@@ -23,6 +23,10 @@ img {
 }
 
 .product::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.kind::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
@@ -54,5 +58,5 @@ img {
   text-transform: uppercase;
 }
 :host{
-  max-width: 100%;
+  max-width: 50%;
 }
