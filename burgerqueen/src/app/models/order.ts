@@ -22,8 +22,8 @@ export class Order {
     this.kind = product.kind;
     this.flavor = '';
     this.units = units;
-    this.subTotal = product.price*units;
-    this.add = product.add ;
+    this.subTotal = product.price;
+    this.add = product.add;
     this.extra = '';
     this.subcategory = '';
   }
